@@ -8,6 +8,7 @@ public final class Motorcycle extends Vehicle {
 
     public Motorcycle(){
         count++;
+        setNormalSpeed(100);
         setName("Motorcyle "+count);
     }
 
@@ -15,15 +16,13 @@ public final class Motorcycle extends Vehicle {
         return count;
     }
 
-    public void moveForAnHour(){
-        System.out.println(getName()+" poruszyl sie");
-    }
-
     @Override
     public void prepareForLap(Race race) {
         if(race.isRaining()){
             int slowDown = random.nextInt(45)+5;
             setActualSpeed(getNormalSpeed()-slowDown);
+        } else {
+            setActualSpeed(getNormalSpeed());
         }
     }
 }

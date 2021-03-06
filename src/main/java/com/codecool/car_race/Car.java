@@ -30,11 +30,8 @@ public class Car extends Vehicle {
     public Car(){
         //80-110
         setNormalSpeed(random.nextInt(30) + 80);
+        setName(generateName());
         count++;
-    }
-
-    public void moveForAnHour(){
-        //System.out.println("+");
     }
 
     @Override

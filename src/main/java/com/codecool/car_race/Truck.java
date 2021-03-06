@@ -5,7 +5,7 @@ import java.util.Random;
 public class Truck extends Vehicle {
     private static int count;
     private Random random = new Random();
-    private State state;
+    private State state = State.NORMAL;
 
     public Truck(){
         count++;
@@ -17,9 +17,6 @@ public class Truck extends Vehicle {
         return count;
     }
 
-    public void moveForAnHour(){
-
-    }
     public boolean isBroken() {
         if(state == State.NORMAL){
             return false;

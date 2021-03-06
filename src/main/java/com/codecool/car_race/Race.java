@@ -7,7 +7,7 @@ public class Race {
     public static final int NUMBER_OF_VEHICLES = 10;
 
     private boolean yellowFlag;
-    private Weather weather;
+    private Weather weather = new Weather();
 
 
     private List<Vehicle> vehicles = new LinkedList<>();
@@ -44,7 +44,14 @@ public class Race {
     }
 
     public void printRaceResults(){
-        //TODO: implement ASAP
+        String results = "";
+        for(Vehicle vehicle:vehicles){
+            results += "name: "+vehicle.getName()+System.lineSeparator();
+            results += "distance: "+vehicle.getDistanceTraveled()+System.lineSeparator();
+            results += "type: "+vehicle.getClass().getSimpleName()+System.lineSeparator();
+            results += System.lineSeparator();
+        }
+        System.out.println(results);
     }
 
     public boolean isYellowFlagActive(){
