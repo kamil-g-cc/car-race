@@ -1,7 +1,25 @@
 package com.codecool.car_race;
 
-public class Car {
+import java.util.Random;
+
+public class Car extends Vehicle {
     private static int count;
+    private Random random = new Random();
+    private int speedDuringYellowFlag = 75;
+
+    private final String[] names = {
+        "Dragon",
+            "Obsidian", "Vanish", "Guerilla", "Celestial", "Crux",
+        "Onyx",
+                "Bolt",
+        "Dynamics",
+                "Scout"
+    };
+    private String generateName(){
+        String firstName = names[random.nextInt(10)];
+        String secondName = names[random.nextInt(10)];
+        return firstName+" "+secondName;
+    }
     /*
     private void addCar(){
         count++;
@@ -10,11 +28,21 @@ public class Car {
         return count;
     }
     public Car(){
-        //addCar();
+        //80-110
+        setNormalSpeed(random.nextInt(30) + 80);
         count++;
     }
 
     public void moveForAnHour(){
         //System.out.println("+");
+    }
+
+    @Override
+    public void prepareForLap(Race race) {
+        if(race.isYellowFlagActive()){
+            setActualSpeed(speedDuringYellowFlag);
+        } else {
+            setActualSpeed(getNormalSpeed());
+        }
     }
 }

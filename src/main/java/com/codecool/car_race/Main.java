@@ -21,5 +21,7 @@ public class Main {
         //race.registerRacer(new Car()); //will throw Index out of bounds exception
         race.simulateRace();
 
+        Car test = new Car();
+        System.out.println(test.getNormalSpeed());
     }
 }
